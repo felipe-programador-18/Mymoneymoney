@@ -20,13 +20,13 @@ const reducer = (state, action) =>{
   }
   
   //remeber this is hoocks personalities
-  const useGet =  Url =>{
+  const useGet =  url =>{
     const [data, dispatch] = useReducer(reducer, {loading:true, data:{}})
     
     useEffect(() => {
       dispatch({type:'REQUEST'})
       axios
-      .get(Url)
+      .get(url)
       .then(res => {
         console.log(res.data)
         dispatch({type:'SUCCESS', data: res.data})
