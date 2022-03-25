@@ -18,13 +18,12 @@ const reducer = (state, action) =>{
     return state
   }
 
-const useDelete = () =>{
-     
+const useDelete = () =>{     
     const [data, dispatch] = useReducer(reducer,
         {loading:false,
             data:{}
     })
-     
+     //this is useffect turn of function remove
     const remove = url => {
         dispatch({type: 'REQUEST'})    
         axios
@@ -35,7 +34,7 @@ const useDelete = () =>{
         })
         }
       return [data, remove]
-  }
+}
     
 
 
