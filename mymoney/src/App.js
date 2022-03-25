@@ -1,21 +1,20 @@
 import './App.css'
 import React from 'react'
-import useGet from './useGet'
+//import useGet from './useGet'
 import usePost from './usePost'
 import useDelete from './useDelete'
-
+import useGet from './rest'
 
 const url = 'https://monthly-app-2d69d-default-rtdb.firebaseio.com/movimentacoes/2022-03.json'
 
-
 function App() {
-  const data = useGet(url)
+  const data = useGet('movimentacoes/2022-03')
   const [postData, post] = usePost(url)
-  const [postRemove, remove] = useDelete(url)
+  const [postRemove, remove] = useDelete()
 
    const Save =  () =>{
     post({
-      valor:'valor', descricao:'remerber practice about that'
+      valor:'10', descricao:'remerber practice about that'
     })
     }
 
@@ -32,9 +31,12 @@ function App() {
 
        <button onClick={Save} >Salvar</button>
        <button onClick={Removed}>Deleta</button> 
-       {JSON.stringify(postRemove)}     
+    
     <pre> {JSON.stringify(postRemove)}  </pre>
     <pre> {JSON.stringify(postData)}  </pre>
+
+   
+   
 
     </div>
   );
