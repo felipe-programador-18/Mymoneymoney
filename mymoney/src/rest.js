@@ -19,7 +19,7 @@ const reducer  = (state, action) =>{
       return{
           ...state,
           loading: false,
-          data: action.date
+          data: action.data
       }
   }
     return state
@@ -63,7 +63,7 @@ const init = baseUrl => {
     const remove = resource => {
         dispatch({type: 'REQUEST'})    
         axios
-        .delete(baseUrl + resource + 'json')
+        .delete(baseUrl + resource + '.json')
         .then(() => {
             dispatch({type:'SUCCESS'
           })
