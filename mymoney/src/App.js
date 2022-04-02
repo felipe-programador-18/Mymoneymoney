@@ -1,22 +1,21 @@
 import './App.css'
 import React from 'react'
-//import useGet from './useGet'
-//import usePost from './usePost'
-//import useDelete from './useDelete'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Header from './elements/Header'
-import Meses from './Meses'
-import Adicionarmes from './Adicionar.meses'
-
+import Home from './pages/Home'
+import Movimentacoes from './pages/Movimentacoes'
 
 function App() {
   return (
- <div className="App">
-    <Header/>
-    <Adicionarmes/>
-  <div className='container'>
-     <Meses/>
-  </div>  
-</div>
+  <Router>
+     <div>
+     <Header/>
+       <Routes>
+        <Route path='/'  element={<Home/>} />
+        <Route path='/movimentacoes/:data' element={<Movimentacoes/>} />
+       </Routes>
+     </div>
+  </Router>
   );
 }
 
