@@ -1,9 +1,20 @@
-import React from "react";
+import React from "react"
+import Rest from '../utils/rest'
+
+const baseUrl = 'https://monthly-app-2d69d-default-rtdb.firebaseio.com/'
+const {useGet} = Rest(baseUrl)
 
 
-const Movimentacoes = () =>{
-    return(
-      <h1 className='text-danger'>Movimentações</h1>
+const Movimentacoes = ({match}) =>{
+  
+  const data = useGet(`movimentacoes/${ match.params.data}`)
+    
+   return( <div className="container" >
+      <h1 className='text-dark'>Movimentações</h1>
+     
+        <pre>{JSON.stringify(data)}</pre>
+
+      </div>
     )
   }
 
